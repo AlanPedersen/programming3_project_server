@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbxServerControls = new System.Windows.Forms.GroupBox();
             this.btnStartServer = new System.Windows.Forms.Button();
             this.tbPipeName = new System.Windows.Forms.TextBox();
@@ -51,9 +52,13 @@
             this.lblMessagesReceived = new System.Windows.Forms.Label();
             this.lstMessagesReceived = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.sslblErrorMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbxServerControls.SuspendLayout();
             this.gbxUserControls.SuspendLayout();
             this.gbxMessageArea.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxServerControls
@@ -75,7 +80,9 @@
             this.btnStartServer.Size = new System.Drawing.Size(75, 23);
             this.btnStartServer.TabIndex = 2;
             this.btnStartServer.Text = "start server";
+            this.toolTip1.SetToolTip(this.btnStartServer, "start the server running");
             this.btnStartServer.UseVisualStyleBackColor = true;
+            this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // tbPipeName
             // 
@@ -85,6 +92,7 @@
             this.tbPipeName.Size = new System.Drawing.Size(192, 20);
             this.tbPipeName.TabIndex = 1;
             this.tbPipeName.Text = "\\\\.\\pipe\\namedPipeJmc";
+            this.toolTip1.SetToolTip(this.tbPipeName, "the name of the pipe used");
             // 
             // lblPipeName
             // 
@@ -102,7 +110,9 @@
             this.btnLogOff.Size = new System.Drawing.Size(75, 23);
             this.btnLogOff.TabIndex = 7;
             this.btnLogOff.Text = "log out";
+            this.toolTip1.SetToolTip(this.btnLogOff, "test log out");
             this.btnLogOff.UseVisualStyleBackColor = true;
+            this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
             // 
             // btnNewUser
             // 
@@ -112,7 +122,9 @@
             this.btnNewUser.Size = new System.Drawing.Size(75, 23);
             this.btnNewUser.TabIndex = 6;
             this.btnNewUser.Text = "new user";
+            this.toolTip1.SetToolTip(this.btnNewUser, "create a new user");
             this.btnNewUser.UseVisualStyleBackColor = true;
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // btnLogin
             // 
@@ -121,7 +133,9 @@
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "login";
+            this.toolTip1.SetToolTip(this.btnLogin, "test login");
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lstCurrentUsers
             // 
@@ -130,6 +144,7 @@
             this.lstCurrentUsers.Name = "lstCurrentUsers";
             this.lstCurrentUsers.Size = new System.Drawing.Size(239, 147);
             this.lstCurrentUsers.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.lstCurrentUsers, "current users");
             // 
             // gbxUserControls
             // 
@@ -157,7 +172,9 @@
             this.btnDisconnectUser.Size = new System.Drawing.Size(100, 23);
             this.btnDisconnectUser.TabIndex = 8;
             this.btnDisconnectUser.Text = "disconnect";
+            this.toolTip1.SetToolTip(this.btnDisconnectUser, "disconnect a user");
             this.btnDisconnectUser.UseVisualStyleBackColor = true;
+            this.btnDisconnectUser.Click += new System.EventHandler(this.btnDisconnectUser_Click);
             // 
             // tbUserName
             // 
@@ -165,6 +182,7 @@
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(100, 20);
             this.tbUserName.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.tbUserName, "enter user name");
             // 
             // tbUserPassword
             // 
@@ -172,6 +190,7 @@
             this.tbUserPassword.Name = "tbUserPassword";
             this.tbUserPassword.Size = new System.Drawing.Size(100, 20);
             this.tbUserPassword.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.tbUserPassword, "enter password");
             this.tbUserPassword.UseSystemPasswordChar = true;
             // 
             // lblUserPassword
@@ -215,7 +234,9 @@
             this.btnSendSend.Size = new System.Drawing.Size(75, 23);
             this.btnSendSend.TabIndex = 6;
             this.btnSendSend.Text = "send";
+            this.toolTip1.SetToolTip(this.btnSendSend, "send a message");
             this.btnSendSend.UseVisualStyleBackColor = true;
+            this.btnSendSend.Click += new System.EventHandler(this.btnSendSend_Click);
             // 
             // btnSendClear
             // 
@@ -224,7 +245,9 @@
             this.btnSendClear.Size = new System.Drawing.Size(75, 23);
             this.btnSendClear.TabIndex = 5;
             this.btnSendClear.Text = "clear";
+            this.toolTip1.SetToolTip(this.btnSendClear, "clear send box");
             this.btnSendClear.UseVisualStyleBackColor = true;
+            this.btnSendClear.Click += new System.EventHandler(this.btnSendClear_Click);
             // 
             // btnReceivedClear
             // 
@@ -233,7 +256,9 @@
             this.btnReceivedClear.Size = new System.Drawing.Size(75, 23);
             this.btnReceivedClear.TabIndex = 4;
             this.btnReceivedClear.Text = "clear";
+            this.toolTip1.SetToolTip(this.btnReceivedClear, "clear received");
             this.btnReceivedClear.UseVisualStyleBackColor = true;
+            this.btnReceivedClear.Click += new System.EventHandler(this.btnReceivedClear_Click);
             // 
             // tbSendMessage
             // 
@@ -242,6 +267,7 @@
             this.tbSendMessage.Name = "tbSendMessage";
             this.tbSendMessage.Size = new System.Drawing.Size(242, 71);
             this.tbSendMessage.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.tbSendMessage, "message to send");
             // 
             // lblSendBox
             // 
@@ -269,6 +295,7 @@
             this.lstMessagesReceived.Name = "lstMessagesReceived";
             this.lstMessagesReceived.Size = new System.Drawing.Size(242, 225);
             this.lstMessagesReceived.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.lstMessagesReceived, "messages received");
             // 
             // btnClose
             // 
@@ -277,13 +304,32 @@
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "close";
+            this.toolTip1.SetToolTip(this.btnClose, "close the application");
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sslblErrorMessage});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 466);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // sslblErrorMessage
+            // 
+            this.sslblErrorMessage.Name = "sslblErrorMessage";
+            this.sslblErrorMessage.Size = new System.Drawing.Size(23, 17);
+            this.sslblErrorMessage.Text = "OK";
             // 
             // FormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbxMessageArea);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbxUserControls);
@@ -296,7 +342,10 @@
             this.gbxUserControls.PerformLayout();
             this.gbxMessageArea.ResumeLayout(false);
             this.gbxMessageArea.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -325,6 +374,9 @@
         private System.Windows.Forms.Label lblMessagesReceived;
         private System.Windows.Forms.ListBox lstMessagesReceived;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel sslblErrorMessage;
     }
 }
 
